@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Tasks</title>
+    <style>
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #cbd0ed;
+            border: 1px solid #63677a;
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            background: #9aa2ca;
+            border: 1px solid #2b2d37;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>JavaScript</h1>
+    <script>
+        function printNameAndAddress() {
+            var name = prompt("Enter your name:");
+            var address = prompt("Enter your address:");
+            document.getElementById("result").innerHTML = "Name: " + name + "<br>Address: " + address;
+        }
+
+        function checkVariableType() {
+            var variable1 = prompt("Enter variable 1:");
+            var variable2 = prompt("Enter variable 2:");
+            if (variable1 === variable2 && typeof variable1 === typeof variable2) {
+                document.getElementById("result").innerHTML = "The value and data type of the two variables are the same.";
+            } else {
+                document.getElementById("result").innerHTML = "The value and data type of the two variables are different.";
+            }
+        }
+
+        function addAndCapitalizeStrings() {
+            var string1 = prompt("Enter string 1:");
+            var string2 = prompt("Enter string 2:");
+            var combinedString = string1 + string2;
+            var uppercaseString = combinedString.toUpperCase();
+            document.getElementById("result").innerHTML = "Combined String (Uppercase): " + uppercaseString;
+        }
+
+        function convertStringLengthToBytes() {
+            var inputString = prompt("Enter a string:");
+            var byteLength = new Blob([inputString]).size;
+            document.getElementById("result").innerHTML = "Length of the string in bytes: " + byteLength + " bytes";
+        }
+
+        function roundNumberToDigits() {
+            var number = parseFloat(prompt("Enter a number:"));
+            var digits = parseInt(prompt("Enter the number of digits to round to:"));
+            var roundedNumber = number.toFixed(digits);
+            document.getElementById("result").innerHTML = "Rounded number: " + roundedNumber;
+        }
+    </script>
+    <div class="buttons">
+        <button class="btn" onclick="printNameAndAddress()">Print Name and Address</button>
+        <button class="btn" onclick="checkVariableType()">Check Variable Type</button>
+        <button class="btn" onclick="addAndCapitalizeStrings()">Add and Capitalize Strings</button>
+        <button class="btn" onclick="convertStringLengthToBytes()">Convert String Length to Bytes</button>
+        <button class="btn" onclick="roundNumberToDigits()">Round Number to Digits</button>
+    </div>
+    <div id="result"></div>
+</body>
+
+</html>

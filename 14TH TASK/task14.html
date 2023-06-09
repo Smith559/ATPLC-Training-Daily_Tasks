@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Tasks</title>
+
+    <style>
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #cbd0ed;
+            border: 1px solid #63677a;
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            background: #9aa2ca;
+            border: 1px solid #2b2d37;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function filterNegativeNumbers() {
+            var numbersString = prompt("Enter a list of numbers separated by commas:");
+            var numbers = numbersString.split(",").map(Number);
+            var filteredNumbers = numbers.filter(function (number) {
+                return number >= 0;
+            });
+            document.getElementById("result").innerHTML = "Filtered Numbers: " + filteredNumbers.join(", ");
+        }
+
+        function getDifferenceFrom13() {
+            var number = parseFloat(prompt("Enter a number:"));
+            var difference = Math.abs(number - 13);
+            if (number > 13) {
+                difference *= 2;
+            }
+            document.getElementById("result").innerHTML = "Difference from 13: " + difference;
+        }
+
+        function fibonacciSeries() {
+            var limit = parseInt(prompt("Enter the limit of the Fibonacci series:"));
+            var fibonacci = [0, 1];
+            for (var i = 2; i < limit; i++) {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+            }
+            document.getElementById("result").innerHTML = "Fibonacci Series: " + fibonacci.join(", ");
+        }
+
+        function sumMultiplesOf3And5() {
+            var sum = 0;
+            for (var i = 1; i < 1000; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    sum += i;
+                }
+            }
+            document.getElementById("result").innerHTML = "Sum of Multiples of 3 and 5: " + sum;
+        }
+
+        var cube = function (number) {
+            return number ** 3;
+        };
+
+        function getCube() {
+            var number = parseFloat(prompt("Enter a number:"));
+            var result = cube(number);
+            document.getElementById("result").innerHTML = "Cube of the Number: " + result;
+        }
+    </script>
+
+    <h1>JavaScript Tasks</h1><br>
+    <div class="buttons">
+        <button class="btn" onclick="filterNegativeNumbers()">Filter Negative Numbers</button>
+        <button class="btn" onclick="getDifferenceFrom13()">Get Difference from 13</button>
+        <button class="btn" onclick="fibonacciSeries()">Fibonacci Series</button>
+        <button class="btn" onclick="sumMultiplesOf3And5()">Sum Multiples of 3 and 5</button>
+        <button class="btn" onclick="getCube()">Get Cube of a Number</button>
+    </div>
+    <div id="result"></div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Tasks</title>
+    <style>
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #cbd0ed;
+            border: 1px solid #63677a;
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            background: #9aa2ca;
+            border: 1px solid #2b2d37;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>JavaScript Tasks</h1>
+    <script>
+        function sortArray() {
+            var elements = prompt("Enter array elements separated by commas:");
+            var array = elements.split(",");
+            array.sort();
+            document.getElementById("result").innerHTML = "Sorted Array: " + array.join(", ");
+        }
+
+        function concatenateArrays() {
+            var elements1 = prompt("Enter elements for the first array separated by commas:");
+            var elements2 = prompt("Enter elements for the second array separated by commas:");
+            var array1 = elements1.split(",");
+            var array2 = elements2.split(",");
+            var concatenatedArray = array1.concat(array2);
+            document.getElementById("result").innerHTML = "Concatenated Array: " + concatenatedArray.join(", ");
+        }
+
+        function removeFirstElement() {
+            var elements = prompt("Enter array elements separated by commas:");
+            var array = elements.split(",");
+            array.shift();
+            document.getElementById("result").innerHTML = "Array after removing first element: " + array.join(", ");
+        }
+    </script>
+    <div class="buttons">
+        <button class="btn" onclick="concatenateArrays()">Concatenate Arrays</button>
+        <button class="btn" onclick="removeFirstElement()">Remove First Element</button>
+        <button class="btn" onclick="sortArray()">Sort Array</button>
+    </div>
+    <div id="result"></div>
+</body>
+
+</html>
